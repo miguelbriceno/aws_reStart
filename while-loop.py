@@ -24,9 +24,22 @@ while usuarioGana != True and intentos <= 3:
         if numeroUsuario == numeroEscondido:
             usuarioGana = True
             print(f"¡Ganaste! {numeroUsuario} era el número correcto.")
+        elif numeroEscondido > numeroUsuario:
+            distancia = numeroEscondido - numeroUsuario
+            if distancia >= 5:
+                print("Ese no es, estás frío... ¡voy a ganar!")
+                intentos += 1
+            elif distancia <= 4:
+                print("Ese no es, pero te acercas, estás caliente... ¿ganaré yo?")
+                intentos += 1
         else:
-            print("Ese no es, ¡voy a ganar!")
-            intentos += 1
+            distancia = numeroUsuario - numeroEscondido
+            if distancia >= 5:
+                print("Ese no es, estás frío... ¡voy a ganar!")
+                intentos += 1
+            elif distancia <= 4:
+                print("Ese no es, pero te acercas, estás caliente... ¿ganaré yo?")
+                intentos += 1
 # Mensaje de derrota
 if intentos >= 3 and usuarioGana != True:
     print(f"\n¡Yo gané!\nEl número correcto era {numeroEscondido}.\nMejor suerte la próxima.")
